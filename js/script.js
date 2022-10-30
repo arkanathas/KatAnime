@@ -40,8 +40,7 @@ function getByAnime(anime){
   fetch(url)
   .then ((response) => response.json())
   .then ((resJson) => {
-    console.log(resJson.result)
-
+    console.log(resJson.result);
     let results = ""; 
         resJson.result.forEach((result) => {
           results += `
@@ -49,16 +48,16 @@ function getByAnime(anime){
             <div class="col s12">
               <div class="card light-blue lighten-2 hoverable">
                 <div class="card-content white-text">
-                  <span class="card-title">${result.character}</span>
-                  <p>${result.english} </p>
-                  <p>${result.indo}</p><br>
-                  <p class="right-align">${result.anime}</p>
+                  <span class="card-title">${result.anime}</span>
+                  <p>"${result.indo}"</p><br>
+                  <p class="right-align">- ${result.character}</p>
                 </div>
               </div>
             </div>
           </div>
                   `;
         });
+
     contents.innerHTML = '<ul class="collection">' + results + "</ul>";
     title.innerHTML = "Kata-kata";
   })
